@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project name="Lab2" default="copy">
+    <path id="compile.classpath">
+        <fileset dir="src">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    <target name="init">
+        <property name = "server" value = "C:\Tomcat 9.0\" />
+        <property name = "work" value = "D:\Java_labs\Lab2\" />
+    </target>
+    <target name="create" depends="init">
+        <delete dir="${server}webapps\Lab2" />
+        <delete dir="${work}build" />
+        <mkdir dir="${server}webapps\Lab2" />
+        <mkdir dir="${server}webapps\Lab2\WEB-INF" />
+        <mkdir dir="${server}webapps\Lab2\WEB-INF\classes" />
+        <mkdir dir="${work}build\classes" />
+    </target>
+    <target name="compile" depends="create">
+        <javac srcdir = "${work}src"
+               destdir = "${work}build\classes"
+               classpath = "${server}lib\servlet-api.jar"/>
+    </target>
+    <target name="copy" depends="compile">
+        <copy file= "${work}\web\WEB-INF\web.xml"
+              todir="${server}\webapps\Lab2\WEB-INF\" />
+        <copy file= "${work}index.html"
+              todir="${server}webapps\Lab2\" />
+        <copy todir="${server}webapps\Lab2\WEB-INF\classes">
+            <fileset dir="${work}build\classes"/>
+        </copy>
+    </target>
+</project>

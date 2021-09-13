@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<project name="HelloWorld" default="copy">
+    <target name="init">
+        <echo message="Building Lab1 Project" />
+    </target>
+    <target name="create" depends ="init">
+        <delete dir="C:\Tomcat 9.0\webapps\Lab1" />
+        <mkdir dir="C:\Tomcat 9.0\webapps\Lab1" />
+        <mkdir dir="C:\Tomcat 9.0\webapps\Lab1\html" />
+        <mkdir dir="C:\Tomcat 9.0\webapps\Lab1\image" />
+        <mkdir dir="C:\Tomcat 9.0\webapps\Lab1\WEB-INF" />
+    </target>
+
+    <target name="copy" depends ="create">
+        <copy file= "D:\Java_labs\Lab1\webapp\WEB-INF\web.xml"
+              todir="C:\Tomcat 9.0\webapps\Lab1\WEB-INF" />
+        <copy file= "D:\Java_labs\Lab1\webapp\html\index.html"
+              todir="C:\Tomcat 9.0\webapps\Lab1\" />
+        <copy file= "D:\Java_labs\Lab1\webapp\html\address.html"
+              todir="C:\Tomcat 9.0\webapps\Lab1\html" />
+        <copy file= "D:\Java_labs\Lab1\webapp\html\education.html"
+              todir="C:\Tomcat 9.0\webapps\Lab1\html" />
+        <copy file= "D:\Java_labs\Lab1\webapp\image\pic.jpg"
+              todir="C:\Tomcat 9.0\webapps\Lab1\image" />
+    </target>
+</project>
