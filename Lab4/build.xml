@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<project name="Lab3" default="copy">
+    <target name="init">
+        <property name = "server" value = "C:\Tomcat 9.0\" />
+        <property name = "work" value = "D:\Java_labs\Lab4\" />
+    </target>
+    <target name="create" depends="init">
+        <delete dir="${server}webapps\Lab4" />
+        <delete dir="${work}build" />
+        <mkdir dir="${server}webapps\Lab4" />
+        <mkdir dir="${work}build\classes" />
+    </target>
+    <target name="compile" depends="create">
+        <javac srcdir = "${work}src\main\java\smelova\lab4" destdir = "${work}target\classes">
+            <classpath>
+                <fileset dir="${work}lib"/>
+            </classpath>
+        </javac>
+    </target>
+    <target name="copy" depends="compile">
+        <copy todir="${server}webapps\Lab4\">
+            <fileset dir="${work}src\main\webapp"/>
+        </copy>
+
+        <mkdir dir="${server}webapps\Lab4\WEB-INF\classes" />
+        <mkdir dir="${server}webapps\Lab4\WEB-INF\lib" />
+
+
+        <copy todir="${server}webapps\Lab4\WEB-INF\classes">
+            <fileset dir="${work}target\classes"/>
+        </copy>
+        <copy todir="${server}webapps\Lab4\WEB-INF\lib">
+            <fileset dir="${work}lib"/>
+        </copy>
+    </target>
+</project>

@@ -25,6 +25,8 @@
               todir="${server}webapps\Lab3\WEB-INF\" />
         <copy file= "${work}index.html"
               todir="${server}webapps\Lab3\" />
+        <copy file= "${work}aaa.html"
+              todir="${server}webapps\Lab3\" />
         <copy todir="${server}webapps\Lab3\WEB-INF\classes">
             <fileset dir="${work}build\classes"/>
         </copy>
