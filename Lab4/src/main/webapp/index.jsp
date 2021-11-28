@@ -10,10 +10,13 @@
 </head>
 <body>
 <%TimeHelper timeHelper = new TimeHelper();%>
-<%timeHelper.PrintHello(timeHelper.getHour());%>
-<%String includeName = timeHelper.GetTimeName(timeHelper.getHour()) +".jsp";%>
 <%--1--%>
+<%timeHelper.PrintHello(timeHelper.getHour());%>
+
+<%String includeName = timeHelper.GetTimeName(timeHelper.getHour()) +".jsp";%>
+
 <h1><%=timeHelper.getRc()%></h1>
+<%----%>
 <hr>
 <%----%>
 <%--2--%>

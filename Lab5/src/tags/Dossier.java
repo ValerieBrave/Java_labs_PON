@@ -31,6 +31,6 @@ public class Dossier extends TagSupport {
             e.printStackTrace();
         }
 
-        return EVAL_BODY_INCLUDE;
+        return EVAL_PAGE;
     }
 }

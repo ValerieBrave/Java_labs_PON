@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project name="Lab7" default="copy">
+    <target name="init">
+        <property name = "server" value = "C:\Tomcat 9.0\" />
+        <property name = "work" value = "D:\Java_labs\Lab7\" />
+    </target>
+    <target name="create" depends="init">
+        <delete dir="${server}webapps\Lab7" />
+        <delete dir="${work}build" />
+        <mkdir dir="${server}webapps\Lab7" />
+        <mkdir dir="${server}webapps\Lab7\WEB-INF" />
+        <mkdir dir="${work}build" />
+    </target>
+    <target name="compile" depends="create">
+        <javac srcdir = "${work}src"
+               destdir = "${work}\build">
+            <classpath>
+                <fileset dir="${work}\WEB-INF\lib"/>
+            </classpath>
+        </javac>
+    </target>
+    <target name="copy" depends="compile">
+        <copy todir="${server}webapps\Lab7\WEB-INF">
+            <fileset dir="${work}WEB-INF"/>
+        </copy>
+        <copy todir="${server}webapps\Lab7">
+            <fileset dir="${work}html"/>
+            <fileset dir="${work}jsp"/>
+        </copy>
+        <mkdir dir="${server}webapps\Lab7\WEB-INF\classes" />
+        <copy todir="${server}webapps\Lab7\WEB-INF\classes">
+            <fileset dir="${work}build"/>
+        </copy>
+    </target>
+</project>
