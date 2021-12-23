@@ -1,4 +1,4 @@
-package lab7;
+package lab9;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -8,12 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-//http://localhost:8180/Lab7/Ccc?scope=session&cbean=new&value1=11&value2=22&value3=33
 public class Ccc extends HttpServlet implements Servlet {
 
     public void init() throws ServletException {
         super.init();
-        //getServletContext().setAttribute("atrCBean", new CBean());
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,9 +31,9 @@ public class Ccc extends HttpServlet implements Servlet {
         /////////////////////////
         HttpSession session = req.getSession();
         String sessionId = session.getId();
-        lab7.CBean cbeanSession = (lab7.CBean) session.getAttribute(sessionId);
-        lab7.CBean objForSession = new lab7.CBean();
-        lab7.CBean objForRequest = new lab7.CBean();
+        CBean cbeanSession = (CBean) session.getAttribute(sessionId);
+        CBean objForSession = new CBean();
+        CBean objForRequest = new CBean();
         //////////////////////////////
 
         if(scope != null && scope.equals("session")) {
