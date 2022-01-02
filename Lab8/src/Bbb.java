@@ -16,13 +16,13 @@ public class Bbb extends HttpServlet {
         while (headers.hasMoreElements()) {
             String headerName = (String) headers.nextElement();
             if (headerName.contains("x"))
-                result += "\n" + headerName + ": " + req.getHeader(headerName);
+                result += "Bbb: headers:\n" + headerName + ": " + req.getHeader(headerName);
         }
         result += "\n";
 
         while (params.hasMoreElements()) {
             String paramName = (String) params.nextElement();
-            result += "\n" + paramName + ": " + req.getParameter(paramName);
+            result += "Bbb: params:\n" + paramName + ": " + req.getParameter(paramName);
         }
 
         resp.addHeader("X-Bbb1", "15");
