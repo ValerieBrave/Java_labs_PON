@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSockets</title>
+    <script type="text/javascript">
+        var ws = null;
+
+        function connect() {
+            ws = new WebSocket("ws://127.0.0.1:8180/Lab16/websockets");
+
+            ws.onmessage = function (event) {
+                document.getElementById('outdiv').innerHTML += event.data + "<br/>";
+            };
+        }
+
+        function disconnect(){
+            ws.close();
+        }
+    </script>
+</head>
+<body>
+    <button onclick="connect()">START</button>
+    <button onclick="disconnect();">STOP</button>
+    <div id="outdiv"></div>
+</body>
+</html>

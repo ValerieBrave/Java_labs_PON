@@ -6,5 +6,6 @@
 <body>
 <h3>Index</h3>
 <a href="/Lab12/sss">Sss</a>
+<a href="/Lab12/logout">Logout</a>
 </body>
 </html>
